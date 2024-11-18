@@ -1,4 +1,6 @@
 package org.tswicolly.jogo.jogador.atributos.status.comum.fisicos;
 
-public class Constituicao {
+import org.tswicolly.jogo.jogador.atributos.Atributo;
+
+public class Constituicao  extends Atributo {
 }

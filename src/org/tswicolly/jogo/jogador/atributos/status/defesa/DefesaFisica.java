@@ -1,4 +1,6 @@
 package org.tswicolly.jogo.jogador.atributos.status.defesa;
 
-public class DefesaFisica {
+import org.tswicolly.jogo.jogador.atributos.Atributo;
+
+public class DefesaFisica  extends Atributo {
 }

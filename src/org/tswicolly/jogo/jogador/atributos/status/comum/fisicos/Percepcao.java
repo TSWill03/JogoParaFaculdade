@@ -1,4 +1,6 @@
 package org.tswicolly.jogo.jogador.atributos.status.comum.fisicos;
 
-public class Percepcao {
+import org.tswicolly.jogo.jogador.atributos.Atributo;
+
+public class Percepcao  extends Atributo {
 }

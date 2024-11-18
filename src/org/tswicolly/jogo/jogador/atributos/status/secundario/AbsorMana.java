@@ -1,4 +1,6 @@
 package org.tswicolly.jogo.jogador.atributos.status.secundario;
 
-public class AbsorMana {
+import org.tswicolly.jogo.jogador.atributos.Atributo;
+
+public class AbsorMana  extends Atributo {
 }

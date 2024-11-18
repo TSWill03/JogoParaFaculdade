@@ -1,4 +1,6 @@
 package org.tswicolly.jogo.jogador.atributos.status.comum.magicos;
 
-public class EnergiaArcana {
+import org.tswicolly.jogo.jogador.atributos.Atributo;
+
+public class EnergiaArcana  extends Atributo {
 }

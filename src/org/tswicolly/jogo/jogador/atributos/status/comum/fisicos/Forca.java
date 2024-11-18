@@ -1,4 +1,6 @@
 package org.tswicolly.jogo.jogador.atributos.status.comum.fisicos;
 
-public class Forca {
+import org.tswicolly.jogo.jogador.atributos.Atributo;
+
+public class Forca  extends Atributo {
 }

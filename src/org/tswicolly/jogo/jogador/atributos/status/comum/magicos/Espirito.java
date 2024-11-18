@@ -1,4 +1,6 @@
 package org.tswicolly.jogo.jogador.atributos.status.comum.magicos;
 
-public class Espirito {
+import org.tswicolly.jogo.jogador.atributos.Atributo;
+
+public class Espirito  extends Atributo {
 }

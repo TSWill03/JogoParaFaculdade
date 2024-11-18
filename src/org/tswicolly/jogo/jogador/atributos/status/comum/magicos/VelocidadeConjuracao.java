@@ -1,4 +1,6 @@
 package org.tswicolly.jogo.jogador.atributos.status.comum.magicos;
 
-public class VelocidadeConjuracao {
+import org.tswicolly.jogo.jogador.atributos.Atributo;
+
+public class VelocidadeConjuracao  extends Atributo {
 }

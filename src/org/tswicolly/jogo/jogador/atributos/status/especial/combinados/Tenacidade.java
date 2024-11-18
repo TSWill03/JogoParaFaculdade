@@ -1,4 +1,6 @@
 package org.tswicolly.jogo.jogador.atributos.status.especial.combinados;
 
-public class Tenacidade {
+import org.tswicolly.jogo.jogador.atributos.Atributo;
+
+public class Tenacidade  extends Atributo {
 }

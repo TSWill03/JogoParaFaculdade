@@ -1,4 +1,6 @@
 package org.tswicolly.jogo.jogador.atributos.status.comum.magicos;
 
-public class RegenMana {
+import org.tswicolly.jogo.jogador.atributos.Atributo;
+
+public class RegenMana  extends Atributo {
 }
