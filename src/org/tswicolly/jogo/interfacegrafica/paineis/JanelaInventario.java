@@ -100,63 +100,45 @@ public class JanelaInventario extends JFrame {
     private void exibirDetalhesItem(Item item) {
         if (item == null) return;
 
-        JPanel painelDetalhes = new JPanel(new GridBagLayout());
-        painelDetalhes.setBackground(Color.WHITE);
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(5, 10, 5, 10);
+        JPanel painelDetalhes = new JPanel();
+        painelDetalhes.setLayout(new BoxLayout(painelDetalhes, BoxLayout.Y_AXIS));
+        painelDetalhes.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         // Cabeçalho
         JLabel lblTitulo = new JLabel(item.getNome());
-        lblTitulo.setFont(new Font("Arial", Font.BOLD, 18));
-        lblTitulo.setForeground(new Color(44, 62, 80));
-        painelDetalhes.add(lblTitulo, gbc);
+        lblTitulo.setFont(new Font("Arial", Font.BOLD, 20));
+        painelDetalhes.add(lblTitulo);
 
-        // Linha de informações
-        gbc.gridy++;
-        JPanel linhaInfo = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 0));
-        linhaInfo.setBackground(Color.WHITE);
+        // Linha de tipo/raridade
+        JPanel linhaTipo = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        linhaTipo.add(new JLabel("Tipo: " + item.getTipo().getNome()));
+        linhaTipo.add(new JLabel("Subtipo: " + item.getSubtipo().getNome()));
+        linhaTipo.add(new JLabel("Raridade: "));
 
-        JLabel lblRaridade = new JLabel("Raridade: ");
-        JLabel lblValorRaridade = new JLabel(item.getRaridade().name());
-        lblValorRaridade.setForeground(Color.decode(item.getRaridade().getCorHex()));
-        lblValorRaridade.setFont(new Font("Arial", Font.BOLD, 12));
+        JLabel lblRaridade = new JLabel(item.getRaridade().name());
+        lblRaridade.setForeground(Color.decode(item.getRaridade().getCorHex()));
+        linhaTipo.add(lblRaridade);
 
-        JLabel lblTipo = new JLabel("Tipo: " + item.getTipo());
-        lblTipo.setForeground(new Color(52, 73, 94));
-
-        linhaInfo.add(lblRaridade);
-        linhaInfo.add(lblValorRaridade);
-        linhaInfo.add(new JSeparator(SwingConstants.VERTICAL));
-        linhaInfo.add(lblTipo);
-        painelDetalhes.add(linhaInfo, gbc);
-
-        // Descrição
-        gbc.gridy++;
-        JTextArea txtDescricao = criarAreaTextoFormatada(item.getDescricao());
-        painelDetalhes.add(txtDescricao, gbc);
+        painelDetalhes.add(linhaTipo);
 
         // Atributos
-        gbc.gridy++;
-        JPanel painelAtributos = new JPanel(new GridLayout(0, 2, 10, 5));
-        painelAtributos.setBackground(Color.WHITE);
-        painelAtributos.setBorder(BorderFactory.createTitledBorder("Atributos"));
-
-        for (String linha : item.getAtributos().split("\n")) {
-            JLabel lblAtributo = new JLabel(linha);
-            lblAtributo.setForeground(new Color(44, 62, 80));
-            painelAtributos.add(lblAtributo);
+        JPanel painelAtributos = new JPanel(new GridLayout(0, 2, 5, 5));
+        for (String atributo : item.getAtributos().split(";")) {
+            painelAtributos.add(new JLabel(atributo.trim()));
         }
+        painelDetalhes.add(new JScrollPane(painelAtributos));
 
-        painelDetalhes.add(painelAtributos, gbc);
+        // Descrição
+        JTextArea txtDescricao = new JTextArea(item.getDescricao());
+        txtDescricao.setEditable(false);
+        txtDescricao.setLineWrap(true);
+        painelDetalhes.add(new JScrollPane(txtDescricao));
 
-        // Atualiza o painel de detalhes
+        // Atualização do painel
         painelDetalhesScroll.setViewportView(painelDetalhes);
-        painelDetalhesScroll.getVerticalScrollBar().setValue(0);
+        painelDetalhes.revalidate();
+        painelDetalhes.repaint();
     }
-
     private JTextArea criarAreaTextoFormatada(String texto) {
         JTextArea area = new JTextArea(texto);
         area.setLineWrap(true);

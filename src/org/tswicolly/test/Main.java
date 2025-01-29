@@ -2,10 +2,7 @@ package org.tswicolly.test;
 
 import org.tswicolly.jogo.interfacegrafica.JanelaPrincipal;
 import org.tswicolly.jogo.itens.Item;
-import org.tswicolly.jogo.itens.ataque.fisico.Espada;
-import org.tswicolly.jogo.itens.defesa.escudos.Escudo;
-import org.tswicolly.jogo.itens.diversos.chaves.ChaveAntiga;
-import org.tswicolly.jogo.itens.suporte.pocoes.vida.PocaoVida;
+
 import org.tswicolly.jogo.padroesprojeto.singleton.Inventario;
 
 
@@ -18,10 +15,6 @@ public class Main {
         Inventario inventario = Inventario.getInstancia();
 
         // Adiciona itens ao inventário
-        inventario.adicionarItem(new Espada());
-        inventario.adicionarItem(new Escudo());
-        inventario.adicionarItem(new PocaoVida());
-        inventario.adicionarItem(new ChaveAntiga());
 
         // Inicia a interface gráfica no EDT (Event Dispatch Thread)
         SwingUtilities.invokeLater(() -> {
