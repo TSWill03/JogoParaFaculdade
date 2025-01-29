@@ -1,6 +1,8 @@
 package org.tswicolly.jogo.itens.suporte.pocoes.vida;
 
 import org.tswicolly.jogo.itens.Item;
+import org.tswicolly.jogo.itens.Raridade;
+import org.tswicolly.jogo.padroesprojeto.singleton.Personagem;
 
 public class PocaoVida implements Item {
     @Override
@@ -27,14 +29,30 @@ public class PocaoVida implements Item {
     }
 
     @Override
-    public String getRaridade() {
-        return "Raro";
+    public Raridade getRaridade() {
+        return Raridade.RARO;
     }
 
     @Override
     public String getPreco() {
         return "25 moedas de ouro";
     }
+
+    @Override
+    public String getCaminhoIcone() {
+        return "/icones/itens/suporte/poçãoVidaPequena/pocaoVidaPequena.png";
+    }
+
+    @Override
+    public void usar(Personagem personagem) {
+
+    }
+
+    @Override
+    public void desequipar(Personagem personagem) {
+
+    }
+
     @Override
     public String toString() {
         return getNome();

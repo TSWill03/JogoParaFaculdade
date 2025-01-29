@@ -1,6 +1,8 @@
 package org.tswicolly.jogo.itens.ataque.fisico;
 
 import org.tswicolly.jogo.itens.Item;
+import org.tswicolly.jogo.itens.Raridade;
+import org.tswicolly.jogo.padroesprojeto.singleton.Personagem;
 
 public class Espada implements Item {
     @Override
@@ -27,8 +29,8 @@ public class Espada implements Item {
     }
 
     @Override
-    public String getRaridade() {
-        return "Comum";
+    public Raridade getRaridade() {
+        return Raridade.COMUM;
     }
 
     @Override
@@ -38,5 +40,20 @@ public class Espada implements Item {
     @Override
     public String toString() {
         return getNome();
+
+    }
+    @Override
+    public String getCaminhoIcone() {
+        return "/icones/itens/ataque/fisico/espada/espadainiciante/iconeEspadaIniciante.png";
+    }
+
+    @Override
+    public void usar(Personagem personagem) {
+        personagem.equiparArma(this);
+    }
+
+    @Override
+    public void desequipar(Personagem personagem) {
+        personagem.desequiparArma();
     }
 }

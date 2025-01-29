@@ -1,5 +1,7 @@
 package org.tswicolly.jogo.padroesprojeto.singleton;
 
+import org.tswicolly.jogo.itens.Item;
+import org.tswicolly.jogo.itens.ataque.fisico.Espada;
 import org.tswicolly.jogo.padroesprojeto.observer.Observador;
 
 import java.util.ArrayList;
@@ -95,5 +97,23 @@ public class Personagem {
     public void setNivel(int nivel) {
         this.nivel = nivel;
         notificarObservadores();
+    }
+    private Item armaEquipada;
+    private Item armaduraEquipada;
+    private List<Item> itensAtivos = new ArrayList<>();
+
+    public void equiparArma(Espada arma) {
+        if(this.armaEquipada != null) {
+            desequiparArma();
+        }
+        this.armaEquipada = arma;
+        System.out.println("Arma equipada: " + arma.getNome());
+    }
+
+    public void desequiparArma() {
+        if(this.armaEquipada != null) {
+            System.out.println("Arma desequipada: " + this.armaEquipada.getNome());
+            this.armaEquipada = null;
+        }
     }
 }

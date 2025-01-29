@@ -1,6 +1,8 @@
 package org.tswicolly.jogo.itens.defesa.escudos;
 
 import org.tswicolly.jogo.itens.Item;
+import org.tswicolly.jogo.itens.Raridade;
+import org.tswicolly.jogo.padroesprojeto.singleton.Personagem;
 
 public class Escudo implements Item {
     @Override
@@ -26,16 +28,35 @@ public class Escudo implements Item {
     }
 
     @Override
-    public String getRaridade() {
-        return "Comum";
+    public Raridade getRaridade() {
+        return Raridade.COMUM;
     }
 
     @Override
     public String getPreco() {
         return "12 moedas de ouro";
     }
+
+    @Override
+    public String getCaminhoIcone() {
+        return "/icones/itens/defesa/fisico/escudos/escudoIniciante/escudoiniciante.png";
+    }
+
+    @Override
+    public void usar(Personagem personagem) {
+
+    }
+
+    @Override
+    public void desequipar(Personagem personagem) {
+
+    }
+
+
+
     @Override
     public String toString() {
         return getNome();
     }
+
 }
