@@ -5,7 +5,7 @@ import org.tswicolly.jogo.padroesprojeto.singleton.Personagem;
 import javax.swing.*;
 import java.awt.*;
 
-public class PainelStatus extends JPanel {
+public class PainelStatus extends JPanel implements Observador {
     private JLabel lblNome;
     private JLabel lblClasse;
     private JLabel lblVida;
@@ -17,8 +17,10 @@ public class PainelStatus extends JPanel {
         // Configura o layout do painel
         setLayout(new GridLayout(6, 2)); // 6 linhas, 2 colunas
 
+        String nomePersonagem = personagem.getNome();
+
         // Inicializa os labels
-        lblNome = new JLabel("Nome: Herói");
+        lblNome = new JLabel("Nome: " + nomePersonagem);
         lblClasse = new JLabel("Classe: Guerreiro");
         lblVida = new JLabel("Vida: 100");
         lblMana = new JLabel("Mana: 50");
@@ -55,6 +57,7 @@ public class PainelStatus extends JPanel {
         atualizarStatus(personagem.getNome(), personagem.getClasse(), personagem.getVida(), personagem.getMana(), personagem.getXp(), personagem.getNivel());
     }
 
+    @Override
     public void atualizar() {
         atualizarStatus(personagem.getNome(), personagem.getClasse(), personagem.getVida(), personagem.getMana(), personagem.getXp(), personagem.getNivel());
     }

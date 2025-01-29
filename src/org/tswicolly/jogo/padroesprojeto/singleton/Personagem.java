@@ -17,7 +17,7 @@ public class Personagem {
 
     private Personagem() {
         // Valores iniciais do personagem
-        this.nome = "Herói";
+        this.nome = "Heroi viajante";
         this.classe = "Guerreiro";
         this.vida = 100;
         this.mana = 50;
