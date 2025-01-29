@@ -1,45 +1,41 @@
 package org.tswicolly.jogo.itens.defesa.escudos;
 
-import org.tswicolly.jogo.itens.defesa.Defesa;
+import org.tswicolly.jogo.itens.Item;
 
-public class Escudo implements Defesa {
-    private String nome;
-    private String descricao;
-    private String efeito;
-
-    public Escudo() {
-        this.nome = "Escudo de Madeira";
-        this.descricao = "Um escudo simples feito de madeira reforçada com um aro metálico. Leve e fácil de manusear, é ideal para guerreiros em treinamento. Apesar de não ser muito resistente contra ataques poderosos, oferece uma defesa básica eficiente.";
-        this.efeito = "Defesa +5";
+public class Escudo implements Item {
+    @Override
+    public String getNome() {
+        return "Escudo de Iniciante";
     }
 
     @Override
-    public String getNome() {
-        return nome;
+    public String getTipo() {
+        return "Equipamento (Escudo)";
     }
 
     @Override
     public String getDescricao() {
-        return descricao;
+        return "Um escudo simples feito de madeira reforçada com um aro metálico. Leve e fácil de manusear, é ideal para guerreiros em treinamento. Apesar de não ser muito resistente contra ataques poderosos, oferece uma defesa básica eficiente.";
     }
 
     @Override
-    public String getEfeito() {
-        return efeito;
+    public String getAtributos() {
+        return "Defesa: +10 de resistência física\n" +
+                "Durabilidade: 120\n" +
+                "Peso: 2.0 kg";
     }
 
     @Override
     public String getRaridade() {
-        return "commom";
+        return "Comum";
     }
 
     @Override
-    public int getValor() {
-        return 12;
+    public String getPreco() {
+        return "12 moedas de ouro";
     }
-
     @Override
-    public int getMultiplicadorValor() {
-        return 3;
+    public String toString() {
+        return getNome();
     }
 }

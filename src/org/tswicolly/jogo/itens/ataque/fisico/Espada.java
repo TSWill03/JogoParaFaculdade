@@ -1,61 +1,42 @@
 package org.tswicolly.jogo.itens.ataque.fisico;
 
-import org.tswicolly.jogo.itens.ataque.Ataque;
+import org.tswicolly.jogo.itens.Item;
 
-public class Espada implements Ataque {
-    private String nome;
-    private String descricao;
-    private String efeito;
-
-
-    public Espada() {
-        this.nome = "Espada de Aço";
-        this.descricao = "Uma espada simples e leve, ideal para guerreiros iniciantes. Forjada em aço comum, possui uma lâmina reta e um cabo de couro para melhor aderência. Apesar de não ser muito afiada, é confiável para combates básicos";
-        this.efeito = "Ataque 8-12";
+public class Espada implements Item {
+    @Override
+    public String getNome() {
+        return "Espada de Iniciante";
     }
 
     @Override
-    public String getNome() {
-        return nome;
+    public String getTipo() {
+        return "Arma (Espada de Uma Mão)";
     }
 
     @Override
     public String getDescricao() {
-        return descricao;
+        return "Uma espada simples e leve, ideal para guerreiros iniciantes. Forjada em aço comum, possui uma lâmina reta e um cabo de couro para melhor aderência. Apesar de não ser muito afiada, é confiável para combates básicos.";
     }
 
     @Override
-    public String getEfeito() {
-        return efeito;
+    public String getAtributos() {
+        return "Dano: 8-12 de dano físico\n" +
+                "Velocidade de Ataque: 1.2 ataques por segundo\n" +
+                "Durabilidade: 100\n" +
+                "Peso: 1.5 kg";
     }
 
     @Override
     public String getRaridade() {
-        return "commom";
+        return "Comum";
     }
 
     @Override
-    public int getValor() {
-        return 10;
+    public String getPreco() {
+        return "10 moedas de ouro";
     }
-
     @Override
-    public int getMultiplicadorValor() {
-        return 3;
-    }
-
-    @Override
-    public int getTipoAtaque() {
-        return 1;
-    }
-
-    @Override
-    public int getDurabilidade() {
-        return 0;
-    }
-
-    @Override
-    public int getVelocidadeAtaque() {
-        return 0;
+    public String toString() {
+        return getNome();
     }
 }

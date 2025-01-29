@@ -1,18 +1,11 @@
 package org.tswicolly.jogo.itens;
 
 public interface Item {
+    public String toString();
     String getNome();
+    String getTipo();
     String getDescricao();
-    String getEfeito();
+    String getAtributos();
     String getRaridade();
-    int getValor();
-
-    int valor = 0;
-    /**
-     * 1. igual a cobre
-     * 2. igual a prata 100 cobres
-     * 3. igual a ouro  100 pratas
-     * 4. igual a platina 100 ouros
-     */
-    int getMultiplicadorValor();
+    String getPreco();
 }

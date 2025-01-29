@@ -19,13 +19,18 @@ public class ChaveAntiga implements Item {
     }
 
     @Override
+    public String getTipo() {
+        return null;
+    }
+
+    @Override
     public String getDescricao() {
         return descricao;
     }
 
     @Override
-    public String getEfeito() {
-        return efeito;
+    public String getAtributos() {
+        return null;
     }
 
     @Override
@@ -34,12 +39,11 @@ public class ChaveAntiga implements Item {
     }
 
     @Override
-    public int getValor() {
-        return 0;
+    public String getPreco() {
+        return null;
     }
-
     @Override
-    public int getMultiplicadorValor() {
-        return 3;
+    public String toString() {
+        return getNome();
     }
 }

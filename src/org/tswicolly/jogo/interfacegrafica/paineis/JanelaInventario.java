@@ -14,7 +14,7 @@ public class JanelaInventario extends JFrame {
     public JanelaInventario() {
         // Configurações da janela
         setTitle("Inventário");
-        setSize(600, 400);
+        setSize(800, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -38,11 +38,17 @@ public class JanelaInventario extends JFrame {
         txtDetalhesItem.setEditable(false);
         txtDetalhesItem.setLineWrap(true);
         txtDetalhesItem.setWrapStyleWord(true);
+        txtDetalhesItem.setFont(new Font("Arial", Font.PLAIN, 14));
 
         // Layout da janela
         JPanel painelPrincipal = new JPanel(new BorderLayout());
         painelPrincipal.add(new JScrollPane(listaItens), BorderLayout.WEST);
-        painelPrincipal.add(new JScrollPane(txtDetalhesItem), BorderLayout.CENTER);
+
+        JPanel painelDetalhes = new JPanel(new BorderLayout());
+        painelDetalhes.setBorder(BorderFactory.createTitledBorder("Detalhes do Item"));
+        painelDetalhes.add(new JScrollPane(txtDetalhesItem), BorderLayout.CENTER);
+
+        painelPrincipal.add(painelDetalhes, BorderLayout.CENTER);
 
         add(painelPrincipal);
     }
@@ -58,10 +64,12 @@ public class JanelaInventario extends JFrame {
 
     // Exibe os detalhes do item selecionado
     public void exibirDetalhesItem(Item item) {
-        txtDetalhesItem.setText(
-                "Nome: " + item.getNome() + "\n" +
-                        "Descrição: " + item.getDescricao() + "\n" +
-                        "Efeito: " + item.getEfeito()
-        );
+        String detalhes = "Item: " + item.getNome() + "\n" +
+                "Tipo: " + item.getTipo() + "\n" +
+                "Descrição: " + item.getDescricao() + "\n" +
+                "Atributos:\n" + item.getAtributos() + "\n" +
+                "Raridade: " + item.getRaridade() + "\n" +
+                "Preço: " + item.getPreco();
+        txtDetalhesItem.setText(detalhes);
     }
 }
