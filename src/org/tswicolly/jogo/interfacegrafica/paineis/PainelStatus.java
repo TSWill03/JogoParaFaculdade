@@ -13,7 +13,9 @@ public class PainelStatus extends JPanel implements Observador {
     private JLabel lblXp;
     private JLabel lblNivel;
 
-    public PainelStatus() {
+    private Personagem personagem;
+
+    public PainelStatus(Personagem personagem) {
         // Configura o layout do painel
         setLayout(new GridLayout(6, 2)); // 6 linhas, 2 colunas
 
@@ -37,6 +39,15 @@ public class PainelStatus extends JPanel implements Observador {
 
         // Estilização opcional
         setBorder(BorderFactory.createTitledBorder("Status do Personagem"));
+
+        this.personagem = personagem;
+        this.personagem.adicionarObservador((Observador) this); // Registra o painel como observador
+        atualizarStatus(personagem.getNome(), personagem.getClasse(), personagem.getVida(), personagem.getMana(), personagem.getXp(), personagem.getNivel());
+    }
+
+    @Override
+    public void atualizar() {
+        atualizarStatus(personagem.getNome(), personagem.getClasse(), personagem.getVida(), personagem.getMana(), personagem.getXp(), personagem.getNivel());
     }
 
     // Método para atualizar os valores exibidos
@@ -49,16 +60,4 @@ public class PainelStatus extends JPanel implements Observador {
         lblNivel.setText("Nível: " + nivel);
     }
 
-    private Personagem personagem;
-
-    public PainelStatus(Personagem personagem) {
-        this.personagem = personagem;
-        this.personagem.adicionarObservador((Observador) this); // Registra o painel como observador
-        atualizarStatus(personagem.getNome(), personagem.getClasse(), personagem.getVida(), personagem.getMana(), personagem.getXp(), personagem.getNivel());
-    }
-
-    @Override
-    public void atualizar() {
-        atualizarStatus(personagem.getNome(), personagem.getClasse(), personagem.getVida(), personagem.getMana(), personagem.getXp(), personagem.getNivel());
-    }
 }
