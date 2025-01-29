@@ -36,6 +36,11 @@ public class PocaoVidaPequena implements Item {
 
     @Override
     public int getValor() {
-        return 0;
+        return 5;
+    }
+
+    @Override
+    public int getMultiplicadorValor() {
+        return 3;
     }
 }

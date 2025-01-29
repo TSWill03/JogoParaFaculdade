@@ -37,4 +37,9 @@ public class ChaveAntiga implements Item {
     public int getValor() {
         return 0;
     }
+
+    @Override
+    public int getMultiplicadorValor() {
+        return 3;
+    }
 }

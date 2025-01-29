@@ -31,12 +31,22 @@ public class Espada implements Ataque {
 
     @Override
     public String getRaridade() {
-        return null;
+        return "commom";
     }
 
     @Override
     public int getValor() {
-        return 0;
+        return 10;
+    }
+
+    @Override
+    public int getMultiplicadorValor() {
+        return 3;
+    }
+
+    @Override
+    public int getTipoAtaque() {
+        return 1;
     }
 
     @Override

@@ -14,5 +14,5 @@ public interface Item {
      * 3. igual a ouro  100 pratas
      * 4. igual a platina 100 ouros
      */
-    int multiplicadorValor = 1;
+    int getMultiplicadorValor();
 }
