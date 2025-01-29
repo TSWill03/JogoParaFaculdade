@@ -1,31 +1,18 @@
 package org.tswicolly.jogo.itens;
 
-public class Item {
-    private String nome;
-    private String descricao;
-    private String efeito;
+public interface Item {
+    String getNome();
+    String getDescricao();
+    String getEfeito();
+    String getRaridade();
+    int getValor();
 
-    public Item(String nome, String descricao, String efeito) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.efeito = efeito;
-    }
-
-    // Getters
-    public String getNome() {
-        return nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public String getEfeito() {
-        return efeito;
-    }
-
-    @Override
-    public String toString() {
-        return nome; // Usado para exibir o nome do item em listas
-    }
+    int valor = 0;
+    /**
+     * 1. igual a cobre
+     * 2. igual a prata 100 cobres
+     * 3. igual a ouro  100 pratas
+     * 4. igual a platina 100 ouros
+     */
+    int multiplicadorValor = 1;
 }

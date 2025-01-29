@@ -15,7 +15,7 @@ public class JanelaInventario extends JFrame {
         // Configurações da janela
         setTitle("Inventário");
         setSize(600, 400);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Fecha apenas esta janela
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
         // Obtém a instância do inventário
